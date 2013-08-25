@@ -13,6 +13,14 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl'
+  gem 'pry'
+  gem 'better_errors'
+end
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
