@@ -1,11 +1,11 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: fdpio_dev
+  database: boxylib_dev
   host: localhost
 
 test:
   adapter: postgresql
   encoding: utf8
-  database: fdpio_test
+  database: boxylib_dev
   host: localhost
