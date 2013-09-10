@@ -16,7 +16,7 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'better_errors'
 end
