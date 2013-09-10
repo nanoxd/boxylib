@@ -17,7 +17,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl'
-  gem 'pry'
+  gem 'pry-rails'
   gem 'better_errors'
 end
 
