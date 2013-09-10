@@ -22,6 +22,7 @@ module Boxylib
     config.generators do |g|
       g.test_framework :rspec, fixture: true, views: false
       g.integration_tool :rspec, fixture: true, views: true
+      g.factory_girl dir: 'spec/factories'
     end
   end
 end
