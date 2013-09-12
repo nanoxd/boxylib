@@ -1,15 +1,13 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
-  sequence :isbn do |n|
-    1232 + n
-  end
-
   factory :book do
     title "Harry Potter and the Chamber of Secrets"
-    author "J.K. Rowling"
+    author { Faker::Name.name }
     series "Harry Potter"
-    isbn
+    isbn { Faker::Code.isbn }
     genre "Non-Fiction"
+    description { Faker::Lorem.paragraph }
   end
 end

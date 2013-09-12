@@ -15,10 +15,16 @@ gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'better_errors'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

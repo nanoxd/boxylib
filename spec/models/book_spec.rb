@@ -7,16 +7,16 @@ describe Book do
     expect(book).to be_valid
   end
 
-  it "is not valid with an ISBN over 14 digits" do
+  it "is invalid with an ISBN over 14 digits" do
     book.isbn = 12345678901234
-    expect(book).not_to be_valid
+    expect(book).to have(1).errors_on(:isbn)
   end
 
-  it "prevents duplicate ISBNs" do
-    user1 = Book.create(isbn: 1232)
-    user2 = Book.create(isbn: 1232)
+  it "is invalid with a duplicate ISBN" do
+    phil = create(:book, isbn: 1234)
+    emma = build(:book, isbn: 1234)
 
-    expect(user1).to be_valid
-    expect(user2).not_to be_valid(:isbn)
+    expect(emma).to have(1).errors_on(:isbn)
   end
+
 end
