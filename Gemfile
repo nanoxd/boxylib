@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'puma', '~> 2.5.1'
 gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
