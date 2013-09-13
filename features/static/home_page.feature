@@ -10,3 +10,4 @@ Feature: Home Page
   Scenario: View home in navbar
     Given I visit the home page
     Then I should see "Home" in a link
+

@@ -11,7 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require twitter/bootstrap
+//= require turbolinks
+//= require shared
 //= require_tree .
+
+// Add active class to navbar
+$(document).page:load(function () {
+  $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+});

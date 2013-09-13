@@ -26,6 +26,9 @@ build:
         - script:
             name: rspec
             code: bundle exec rspec
+        - script:
+            name: cucumber
+            code: bundle exec cucumber
 deploy:
     steps:
         - heroku-deploy
