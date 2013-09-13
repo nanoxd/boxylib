@@ -19,6 +19,6 @@
 //= require_tree .
 
 // Add active class to navbar
-$(document).page:load(function () {
+$(document).ready(function () {
   $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
 });
