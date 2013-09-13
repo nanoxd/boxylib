@@ -3,11 +3,15 @@ require 'faker'
 
 FactoryGirl.define do
   factory :book do
-    title "Harry Potter and the Chamber of Secrets"
+    title { Faker::Commerce.product_name }
     author { Faker::Name.name }
-    series "Harry Potter"
+    series { Faker::Commerce.product_name }
     isbn { Faker::Code.isbn }
-    genre "Non-Fiction"
+    genre { Faker::Name.title }
     description { Faker::Lorem.paragraph }
+
+    factory :invalid_book do
+      isbn nil
+    end
   end
 end
