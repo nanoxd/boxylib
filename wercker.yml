@@ -5,13 +5,12 @@ box: wercker/ubuntu12.04-ruby2.0.0
 # You will want to define your database as follows:
 services:
   - wercker/postgresql
-# See more about services on our devcenter:
-# http://devcenter.wercker.com/articles/services/
 build:
     steps:
         - bundle-install
         # A step that prepares the database.yml using the database in services
         - rails-database-yml
+            service: postgresql
         # A custom script step, name value is used in the UI
         # and the code value contains the command that get executed
         - script:
@@ -20,7 +19,10 @@ build:
                 echo "ruby version $(ruby --version) running"
                 echo "from location $(which ruby)"
                 echo -p "gem list: $(gem list)"
-        # Add more steps here:
+        - script:
+            name: Set up db
+            code: bundle exec rake db:schema:load RAILS_ENV=test
+
         - script:
             name: rspec
             code: bundle exec rspec
