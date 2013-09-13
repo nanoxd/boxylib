@@ -31,6 +31,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'simplecov', require: false
+  gem 'cucumber-rails', require: false
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

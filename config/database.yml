@@ -4,8 +4,11 @@ development:
   database: boxylib_dev
   host: localhost
 
-test:
+test: &test
   adapter: postgresql
   encoding: utf8
   database: boxylib_dev
   host: localhost
+
+cucumber:
+  <<: *test
