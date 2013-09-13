@@ -1,4 +1,5 @@
 Boxylib::Application.routes.draw do
+  devise_for :users
   root "sites#index"
   resources :books
   # The priority is based upon order of creation: first created -> highest priority.

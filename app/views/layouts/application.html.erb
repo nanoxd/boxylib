@@ -11,8 +11,12 @@
   <%= render 'shared/header' %>
 
   <div class="container">
-   <p class="alert alert-info"><%= notice %></p>
-   <p class="alert alert-danger"><%= alert %></p></p>
+    <% if notice %>
+     <p class="alert alert-info"><%= notice %></p>
+   <% elsif alert %>
+     <p class="alert alert-danger"><%= alert %></p></p>
+   <% end %>
+
     <%= yield %>
   </div>
 
