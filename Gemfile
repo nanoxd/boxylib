@@ -28,6 +28,7 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'simplecov', require: false
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
