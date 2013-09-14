@@ -1,18 +1,23 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url:  registration_path(resource_name), html: {class: 'form col-md-8'}) do |f| %>
-  <%= devise_error_messages! %>
+<div class="col-md-4 col-md-offset-4">
+  <section class="account-form">
+    <h1>Sign Up</h1>
 
-  <div class="form-group"><%= f.label :email %>
-  <%= f.email_field :email, :autofocus => true, class: 'form-control', placeholder: 'me@google.com' %></div>
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-group"><%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control' %></div>
+      <div class="form-inputs">
+        <%= f.input :email, :required => true, :autofocus => true %>
+        <%= f.input :password, :required => true %>
+        <%= f.input :password_confirmation, :required => true %>
+      </div>
 
-  <div class="form-group"><%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %></div>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+    <% end %>
+  </section>
 
-  <div class="form-group"><%= f.submit "Sign up", class: 'btn btn-default' %></div>
-<% end %>
+  <%= render "devise/shared/links" %>
+</div>
 
-<%= render "devise/shared/links" %>
