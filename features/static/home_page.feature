@@ -11,3 +11,12 @@ Feature: Home Page
     Given I visit the home page
     Then I should see "Home" in a link
 
+  Scenario: Sign in
+    Given I visit the home page
+    When I click "Sign In"
+    And I am a new authenticated user
+    Then I should see "Signed in successfully" in the selector "p"
+    And I should see a sign out link
+    
+
+
