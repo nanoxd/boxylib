@@ -17,6 +17,12 @@ Feature: Home Page
     And I am a new authenticated user
     Then I should see "Signed in successfully" in the selector "p"
     And I should see a sign out link
-    
+
+  Scenario: Sign out
+    Given I visit the home page
+    And I am a new authenticated user
+    When I click "Sign Out"
+    Then I should see "Signed out successfully" in the selector "p"
+
 
 
