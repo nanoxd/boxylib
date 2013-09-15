@@ -30,4 +30,18 @@ body {
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
   }
+  .form-actions {
+    text-align: center;
+    margin: 0 -15px;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+  }
+}
+
+.account-extras {
+  text-align: center;
+  color: #777;
+  padding: 30px 0 0;
+  font-size: 13px;
 }
