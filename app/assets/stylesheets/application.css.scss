@@ -12,4 +12,20 @@
  *= require_tree .
  */
 
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Fauna+One);
+$navbar-default-bg: #354B5E;
+$navbar-default-link-color: #DCDDD8;
+$navbar-default-link-hover-color: darken($navbar-default-link-color, 10%);
+$navbar-default-link-hover-bg: lighten($navbar-default-bg, 10%);
+$navbar-default-link-active-bg: lighten($navbar-default-bg, 15%);
+$navbar-default-link-active-color: #ECEFF3;
+$body-bg: #ECEFF3;
+$text-color: #475F77;
+$brand-primary: #354B5E;
+$link-color: lighten($text-color, 30%);
+$font-family-sans-serif: 'Merriweather Sans', 'Helvetica Neue', sans-serif;
+$font-family-serif: 'Fauna One', serif;
+
 @import "twitter/bootstrap";
+
