@@ -21,4 +21,13 @@ describe User do
     user.email = nil
     expect(user).to have(1).errors_on(:email)
   end
+
+  it 'has an array of books' do
+    expect(user.books).to eq([])
+  end
+
+  it 'responds with its created books' do
+    user.books.build(isbn: 123)
+    expect(user.books.map(&:isbn)).to eq([123])
+  end
 end

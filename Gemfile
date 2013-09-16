@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'pry-debugger'
   gem 'better_errors'
 end
 

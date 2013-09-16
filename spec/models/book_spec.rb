@@ -19,4 +19,8 @@ describe Book do
     expect(emma).to have(1).errors_on(:isbn)
   end
 
+  it 'is associated with a user' do
+    expect(book).to respond_to(:user)
+  end
+
 end

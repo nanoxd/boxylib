@@ -9,6 +9,7 @@ FactoryGirl.define do
     isbn { Faker::Code.isbn }
     genre { Faker::Name.title }
     description { Faker::Lorem.paragraph }
+    user
 
     factory :invalid_book do
       isbn nil
