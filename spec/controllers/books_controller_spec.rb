@@ -55,16 +55,17 @@ describe BooksController do
   end
 
   describe 'POST #create' do
-    let(:user) { create(:user) }
+    login_user
+
     context "with valid attributes" do
       it 'saves the new book in the database' do
         expect{
-          post :create, book: attributes_for(:book, user_id: user.id)
+          post :create, book: attributes_for(:book)
         }.to change(Book, :count).by(1)
       end
 
       it 'redirects to books#show' do
-        post :create, book: attributes_for(:book, user_id: user.id)
+        post :create, book: attributes_for(:book)
         expect(response).to redirect_to book_path(assigns(:book))
       end
     end

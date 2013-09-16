@@ -1,0 +1,22 @@
+<div class="col-md-4 col-md-offset-4">
+  <section class="account-form">
+    <h1>New Book</h1>
+    <%= simple_form_for(@book)  do |f| %>
+
+      <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :title, autofocus: true, required: true %>
+          <%= f.input :author %>
+          <%= f.input :isbn, required: true %>
+          <%= f.input :description %>
+          <%= f.hidden_field :user_id %>
+        </div>
+
+
+        <div class="form-actions">
+          <%= f.button :submit, "Create Book" %>
+        </div>
+
+    <% end %>
+  </section>
+</div>
