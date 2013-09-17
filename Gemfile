@@ -8,6 +8,7 @@ gem 'puma', '~> 2.5.1'
 gem 'rails_12factor'
 gem 'newrelic_rpm'
 gem 'devise'
+gem 'dropbox-sdk'
 
 # Assets
 gem 'sass-rails', '~> 4.0.0'
