@@ -2,6 +2,11 @@ Boxylib::Application.routes.draw do
   devise_for :users
   root "sites#index"
   resources :books
+  get 'dropbox/main'
+  post 'dropbox/upload'
+  get 'dropbox/auth_start'
+  get 'dropbox/auth_finish'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

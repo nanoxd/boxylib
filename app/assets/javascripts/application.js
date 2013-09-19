@@ -16,6 +16,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require shared
+//= require dropzone
 //= require_tree .
 
 // Add active class to navbar
