@@ -16,6 +16,7 @@
 
 require 'dropbox_sdk'
 require 'securerandom'
+require 'epubinfo'
 
 APP_KEY = "7d2i16m7109sz28"
 APP_SECRET = ENV['BOXY_SEC']
@@ -43,9 +44,14 @@ class DropboxController < ApplicationController
 
         begin
             # Upload the POST'd file to Dropbox, creates a folder with a name of filename - extension/file
+            epub = EPUBInfo.get(params[:file].tempfile)
+            author = epub.creators.first.name
+            title = epub.titles.first
             file_name = params[:file].original_filename
-            folder = client.file_create_folder(file_name[0..-5])
-            full_path = folder["path"] + '/' + file_name
+            folder = author
+
+            # folder = client.file_create_folder(file_name[0..-6])
+            full_path = folder + '/' + "#{author} - #{title}.epub"
             resp = client.put_file(full_path, params[:file].read)
             render :text => "Upload successful.  File now at #{resp['path']}"
         rescue DropboxAuthError => e
@@ -56,6 +62,11 @@ class DropboxController < ApplicationController
             logger.info "Dropbox API error: #{e}"
             render :text => "Dropbox API error"
         end
+    end
+
+    def parse
+      # Need to figure out how to get uploaded file poss. params[:file]
+      parser = EPUBInfo.get(ebook)
     end
 
     def get_dropbox_client
