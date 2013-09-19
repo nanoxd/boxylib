@@ -18,7 +18,8 @@ require 'dropbox_sdk'
 require 'securerandom'
 
 APP_KEY = "7d2i16m7109sz28"
-APP_SECRET = ENV['BOXYLIB_SECRET']
+APP_SECRET = ENV['BOXY_SEC']
+AUTHORIZED_UPLOADS = /\.(pdf|mobi|epub)$/
 
 class DropboxController < ApplicationController
 
@@ -41,8 +42,11 @@ class DropboxController < ApplicationController
         end
 
         begin
-            # Upload the POST'd file to Dropbox, keeping the same name
-            resp = client.put_file(params[:file].original_filename, params[:file].read)
+            # Upload the POST'd file to Dropbox, creates a folder with a name of filename - extension/file
+            file_name = params[:file].original_filename
+            folder = client.file_create_folder(file_name[0..-5])
+            full_path = folder["path"] + '/' + file_name
+            resp = client.put_file(full_path, params[:file].read)
             render :text => "Upload successful.  File now at #{resp['path']}"
         rescue DropboxAuthError => e
             session.delete(:access_token)  # An auth error means the access token is probably bad
