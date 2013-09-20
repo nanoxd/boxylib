@@ -47,11 +47,9 @@ class DropboxController < ApplicationController
             epub = EPUBInfo.get(params[:file].tempfile)
             author = epub.creators.first.name
             title = epub.titles.first
-            file_name = params[:file].original_filename
             folder = "#{author}/#{title}/"
             isbn = epub.identifiers.first.identifier.gsub(/\D/, '')
 
-            # folder = client.file_create_folder(file_name[0..-6])
             full_path = folder + "#{author} - #{title}.epub"
             resp = client.put_file(full_path, params[:file].read)
             cover = client.put_file("#{folder}cover.jpg", epub.cover.tempfile)
