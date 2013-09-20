@@ -7,7 +7,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: utf8
-  database: boxylib_dev
+  database: boxylib_test
   host: localhost
 
 cucumber:
