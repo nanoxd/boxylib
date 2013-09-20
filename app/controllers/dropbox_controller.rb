@@ -54,6 +54,7 @@ class DropboxController < ApplicationController
             # folder = client.file_create_folder(file_name[0..-6])
             full_path = folder + "#{author} - #{title}.epub"
             resp = client.put_file(full_path, params[:file].read)
+            cover = client.put_file("#{folder}cover.jpg", epub.cover.tempfile)
             book = Book.create(user_id: current_user.id, title: title, author: author, isbn: isbn)
             render :text => "Upload successful.  File now at #{resp['path']}"
         rescue DropboxAuthError => e
