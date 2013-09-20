@@ -12,7 +12,7 @@ FactoryGirl.define do
     user
 
     factory :invalid_book do
-      isbn nil
+      isbn 1234567890123456
     end
   end
 end

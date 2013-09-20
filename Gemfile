@@ -22,6 +22,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'simple_form', git: 'https://github.com/plataformatec/simple_form.git'
 gem 'dropzonejs-rails'
+gem 'epubinfo'
 
 group :development, :test do
   gem 'rspec-rails'
