@@ -43,16 +43,18 @@ class DropboxController < ApplicationController
         end
 
         begin
-            # Upload the POST'd file to Dropbox, creates a folder with a name of filename - extension/file
+            # Upload the POST'd file to Dropbox, creates a folder with a name of Author/Author - Title.ext
             epub = EPUBInfo.get(params[:file].tempfile)
             author = epub.creators.first.name
             title = epub.titles.first
             file_name = params[:file].original_filename
             folder = author
+            isbn = epub.identifiers.first.identifier.gsub(/\D/, '')
 
             # folder = client.file_create_folder(file_name[0..-6])
             full_path = folder + '/' + "#{author} - #{title}.epub"
             resp = client.put_file(full_path, params[:file].read)
+            book = Book.create(user_id: current_user.id, title: title, author: author, isbn: isbn)
             render :text => "Upload successful.  File now at #{resp['path']}"
         rescue DropboxAuthError => e
             session.delete(:access_token)  # An auth error means the access token is probably bad
