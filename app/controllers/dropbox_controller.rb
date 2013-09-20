@@ -48,11 +48,11 @@ class DropboxController < ApplicationController
             author = epub.creators.first.name
             title = epub.titles.first
             file_name = params[:file].original_filename
-            folder = author
+            folder = "#{author}/#{title}/"
             isbn = epub.identifiers.first.identifier.gsub(/\D/, '')
 
             # folder = client.file_create_folder(file_name[0..-6])
-            full_path = folder + '/' + "#{author} - #{title}.epub"
+            full_path = folder + "#{author} - #{title}.epub"
             resp = client.put_file(full_path, params[:file].read)
             book = Book.create(user_id: current_user.id, title: title, author: author, isbn: isbn)
             render :text => "Upload successful.  File now at #{resp['path']}"
