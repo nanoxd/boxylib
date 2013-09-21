@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe BooksController do
   let(:book) { create(:book) }
+  login_user
 
   describe 'GET #index' do
     it 'renders the index view' do
@@ -18,6 +19,7 @@ describe BooksController do
   end
 
   describe 'GET #show' do
+    login_user
 
     it 'assigns the requested message to @book' do
       get :show, id: book
@@ -55,7 +57,6 @@ describe BooksController do
   end
 
   describe 'POST #create' do
-    login_user
 
     context "with valid attributes" do
       it 'saves the new book in the database' do
