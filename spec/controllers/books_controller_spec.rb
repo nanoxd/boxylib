@@ -19,7 +19,6 @@ describe BooksController do
   end
 
   describe 'GET #show' do
-    login_user
 
     it 'assigns the requested message to @book' do
       get :show, id: book

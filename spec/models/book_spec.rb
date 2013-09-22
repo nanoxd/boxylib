@@ -12,13 +12,6 @@ describe Book do
     expect(book).to have(1).errors_on(:isbn)
   end
 
-  # it "is invalid with a duplicate ISBN" do
-  #   phil = create(:book, isbn: 1234)
-  #   emma = build(:book, isbn: 1234)
-
-  #   expect(emma).to have(1).errors_on(:isbn)
-  # end
-
   it 'is associated with a user' do
     expect(book).to respond_to(:user)
   end
