@@ -9,6 +9,9 @@ gem 'rails_12factor'
 gem 'newrelic_rpm'
 gem 'devise'
 gem 'dropbox-sdk'
+gem 'aws-sdk'
+gem 'paperclip'
+gem 's3_direct_upload'
 
 # Assets
 gem 'sass-rails', '~> 4.0.0'
