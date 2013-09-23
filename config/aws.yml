@@ -4,6 +4,8 @@ defaults: &defaults
 development:
   <<: *defaults
   bucket: "boxylib-dev"
+  access_key_id: AKIAJRGARXXKDNLQBNTQ
+  secret_access_key: 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
 test:
   <<: *defaults
   bucket: "boxylib-test"
