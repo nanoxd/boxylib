@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916011327) do
+ActiveRecord::Schema.define(version: 20130924012543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,14 +20,25 @@ ActiveRecord::Schema.define(version: 20130916011327) do
     t.string   "title"
     t.string   "author"
     t.string   "series"
-    t.integer  "isbn",        limit: 8
+    t.integer  "isbn",               limit: 8
     t.string   "genre"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "ebook_file_name"
+    t.string   "ebook_content_type"
+    t.integer  "ebook_file_size"
+    t.datetime "ebook_updated_at"
+    t.string   "direct_upload_url"
+    t.boolean  "processed",                    default: false, null: false
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
+  add_index "books", ["processed"], name: "index_books_on_processed", using: :btree
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
 
   create_table "libraries", force: true do |t|
