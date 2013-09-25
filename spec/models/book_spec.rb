@@ -16,4 +16,10 @@ describe Book do
     expect(book).to respond_to(:user)
   end
 
+  it { should have_attached_file(:ebook) }
+  it { should validate_attachment_content_type(:ebook).
+                allowing("application/epub+zip", "application/pdf").
+                rejecting("image/jpeg")
+  }
+
 end

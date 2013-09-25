@@ -1,16 +1,17 @@
 <div class="col-md-4 col-md-offset-4">
   <section class="account-form">
     <h1>New Book</h1>
-    <%= simple_form_for(@book)  do |f| %>
+    <%= simple_form_for @book, :html => { multipart: true } do |f| %>
 
       <%= f.error_notification %>
         <div class="form-inputs">
           <%= f.input :title, autofocus: true, required: true %>
           <%= f.input :author %>
-          <%= f.input :isbn, required: true %>
+          <%= f.input :isbn %>
           <%= f.input :description %>
           <%= f.input :series %>
           <%= f.input :genre %>
+          <%= f.file_field :ebook %>
           <%= f.hidden_field :user_id %>
         </div>
 

@@ -22,19 +22,4 @@
   <% end %>
 </table>
 
-<%# <%= link_to 'Add Book', new_book_path, class: "btn btn-success" %>
-
-<%= s3_uploader_form callback_url: books_url,
-  id: 's3_uploader',
-    callback_param: "book[direct_upload_url]",
-    expiration: 3.days.from_now.utc.iso8601,
-    max_file_size: 20.megabytes do %>
-    <%= file_field_tag :file, multiple: true %>
-<% end %>
-<div id="uploads_container"></div>
-<script id="template-upload" type='text/x-tmpl'>
-  <div id="upload_{%=o.unique_id%}" class="upload">
-    <h5>{%=o.name%}</h5>
-    <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
-  </div>
-</script>
+<%= link_to 'Add Book', new_book_path, class: "btn btn-success" %>

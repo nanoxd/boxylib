@@ -19,3 +19,4 @@
 /coverage/*
 
 config/aws.yml
+/config/dropbox.yml

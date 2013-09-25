@@ -11,7 +11,7 @@ gem 'devise'
 gem 'dropbox-sdk'
 gem 'aws-sdk'
 gem 'paperclip'
-gem 's3_direct_upload'
+gem 'paperclip-dropbox'
 
 # Assets
 gem 'sass-rails', '~> 4.0.0'

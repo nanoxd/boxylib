@@ -17,7 +17,6 @@
 //= require turbolinks
 //= require shared
 //= require dropzone
-//= require s3_direct_upload
 //= require_tree .
 
 // Add active class to navbar
