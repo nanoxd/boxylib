@@ -1,9 +1,19 @@
 <div class="col-md-4 col-md-offset-4">
   <section class="account-form">
-    <h1>New Book</h1>
+    <h1><%= @title %>
+      <% if @title.include? "Editing" %>
+        <br><small>by <%= @book.author %></small>
+      <% end %>
+    </h1>
     <%= simple_form_for @book, :html => { multipart: true } do |f| %>
 
       <%= f.error_notification %>
+      <% if @title.eql? "New Book" %>
+        <div class="alert alert-info alert-dismissiable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          File Formats Supported: .pdf/.epub
+        </div>
+      <% end %>
         <div class="form-inputs">
           <%= f.input :title, autofocus: true, required: true %>
           <%= f.input :author %>
@@ -17,7 +27,7 @@
 
 
         <div class="form-actions">
-          <%= f.button :submit, "Create Book" %>
+          <%= f.button :submit %>
         </div>
 
     <% end %>
