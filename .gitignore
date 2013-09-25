@@ -18,4 +18,3 @@
 # Ignore test coverage
 /coverage/*
 
-config/aws.yml

@@ -1,0 +1,15 @@
+development:
+  <<: *defaults
+  bucket: "boxylib-dev"
+  access_key_id: <%= ENV["BOXY_S3_DEV"] %>
+  secret_access_key: <%= ENV["BOXY_S3_DEV_SECRET"] %>
+test:
+  bucket: "boxylib-test"
+  access_key_id: <%= ENV["BOXY_S3_DEV"] %>
+  secret_access_key: <%= ENV["BOXY_S3_DEV_SECRET"] %>
+production:
+  access_key_id: <%= ENV["BOXY_S3"] %>
+  secret_access_key: <%= ENV["BOXY_S3_SECRET"] %>
+  bucket: "boxylib"
+
+
