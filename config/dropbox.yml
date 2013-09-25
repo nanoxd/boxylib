@@ -1,0 +1,6 @@
+app_key: <%= ENV['BOXY_APPKEY'] %>
+app_secret: <%= ENV['BOXY_SEC'] %>
+access_token: <%= ENV['BOXY_DROP_ACCESS'] %>
+access_token_secret: <%= ENV['BOXY_DROP_SECRET'] %>
+user_id: <%= ENV['BOXY_USER_ID'] %>
+access_type: "app_folder"
