@@ -41,14 +41,6 @@ ActiveRecord::Schema.define(version: 20130924012543) do
   add_index "books", ["processed"], name: "index_books_on_processed", using: :btree
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
 
-  create_table "libraries", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "libraries", ["user_id"], name: "index_libraries_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
